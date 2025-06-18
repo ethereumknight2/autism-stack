@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🥫 AUTISM STACK 100 🚀 - The Ultimate Can Stacking Memecoin</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Comic Neue", cursive;
+        background: linear-gradient(
+          45deg,
+          #ff1493,
+          #00ffff,
+          #ff4500,
+          #9400d3,
+          #ffff00,
+          #ff69b4
+        );
+        background-size: 400% 400%;
+        animation: gradientShift 3s ease infinite;
+        overflow-x: hidden;
+        min-height: 100vh;
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .container {
+        position: relative;
+        z-index: 10;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 50px;
+        position: relative;
+      }
+
+      .title {
+        font-size: 4rem;
+        font-weight: 700;
+        color: #fff;
+        text-shadow: 3px 3px 0px #000, 6px 6px 0px #ff1744;
+        animation: titleBounce 2s ease-in-out infinite;
+        transform-origin: center;
+      }
+
+      @keyframes titleBounce {
+        0%,
+        100% {
+          transform: scale(1) rotate(-2deg);
+        }
+        50% {
+          transform: scale(1.1) rotate(2deg);
+        }
+      }
+
+      .subtitle {
+        font-size: 1.5rem;
+        color: #000;
+        background: linear-gradient(45deg, #3bd5ff, #1ee92c);
+        padding: 10px 20px;
+        border-radius: 50px;
+        display: inline-block;
+        margin-top: 20px;
+        animation: wiggle 1.5s ease-in-out infinite;
+        text-shadow: 1px 1px 0px #fff;
+      }
+
+      @keyframes wiggle {
+        0%,
+        100% {
+          transform: rotate(-3deg);
+        }
+        25% {
+          transform: rotate(3deg);
+        }
+        75% {
+          transform: rotate(-1deg);
+        }
+      }
+
+      .main-image-container {
+        text-align: center;
+        margin: 50px 0;
+        position: relative;
+      }
+
+      .main-image {
+        max-width: 400px;
+        border: 8px solid #fff;
+        border-radius: 20px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        animation: imageFloat 3s ease-in-out infinite;
+      }
+
+      @keyframes imageFloat {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        33% {
+          transform: translateY(-10px) rotate(1deg);
+        }
+        66% {
+          transform: translateY(5px) rotate(-1deg);
+        }
+      }
+
+      .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin: 50px 0;
+      }
+
+      .feature-card {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        animation: cardFloat 4s ease-in-out infinite;
+        border: 5px solid;
+        border-image: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1) 1;
+      }
+
+      .feature-card:nth-child(2) {
+        animation-delay: 1s;
+      }
+
+      .feature-card:nth-child(3) {
+        animation-delay: 2s;
+      }
+
+      @keyframes cardFloat {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+      }
+
+      .feature-title {
+        font-size: 1.8rem;
+        color: #333;
+        margin-bottom: 15px;
+        text-shadow: 1px 1px 0px #fff;
+      }
+
+      .cta-button {
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+        padding: 20px 40px;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        text-transform: uppercase;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        animation: pulse 2s infinite;
+        margin: 30px 10px;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .cta-button:hover {
+        animation: shake 0.5s infinite;
+      }
+
+      @keyframes shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-5px);
+        }
+        75% {
+          transform: translateX(5px);
+        }
+      }
+
+      /* Falling cans animation */
+      .falling-can {
+        position: fixed;
+        width: 30px;
+        height: 40px;
+        background: linear-gradient(45deg, #ff6b6b, #ffa500, #32cd32);
+        border-radius: 5px;
+        z-index: 1;
+        animation: fall linear infinite;
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(-100px) rotate(0deg);
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+        }
+      }
+
+      /* Flying rockets */
+      .rocket {
+        position: fixed;
+        font-size: 2rem;
+        z-index: 1;
+        animation: flyRocket linear infinite;
+      }
+
+      @keyframes flyRocket {
+        0% {
+          transform: translateX(-100px) translateY(0) rotate(45deg);
+        }
+        100% {
+          transform: translateX(100vw) translateY(-200px) rotate(45deg);
+        }
+      }
+
+      /* Flying goats */
+      .goat {
+        position: fixed;
+        font-size: 2.5rem;
+        z-index: 1;
+        animation: flyGoat linear infinite;
+      }
+
+      @keyframes flyGoat {
+        0% {
+          transform: translateX(100vw) translateY(0) scaleX(-1);
+        }
+        100% {
+          transform: translateX(-100px) translateY(-150px) scaleX(-1);
+        }
+      }
+
+      /* Flying 100 emojis */
+      .hundred-emoji {
+        position: fixed;
+        font-size: 2rem;
+        z-index: 1;
+        animation: float100 linear infinite;
+      }
+
+      @keyframes float100 {
+        0% {
+          transform: translateX(-50px) translateY(80vh) rotate(0deg) scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: translateX(50vw) translateY(40vh) rotate(180deg) scale(1.2);
+          opacity: 1;
+        }
+        100% {
+          transform: translateX(100vw) translateY(10vh) rotate(360deg) scale(1);
+          opacity: 0;
+        }
+      }
+
+      /* Bouncing garden gnomes */
+      .googly-eye {
+        position: fixed;
+        font-size: 1.8rem;
+        z-index: 1;
+        animation: bouncyEye ease-in-out infinite;
+      }
+
+      @keyframes bouncyEye {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+        }
+        25% {
+          transform: translateY(-30px) scale(1.2);
+        }
+        50% {
+          transform: translateY(-60px) scale(0.8);
+        }
+        75% {
+          transform: translateY(-30px) scale(1.1);
+        }
+      }
+
+      .tokenomics {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 25px;
+        margin: 50px 0;
+        text-align: center;
+        border: 6px dashed #ff6b6b;
+        animation: borderColorChange 3s infinite;
+      }
+
+      @keyframes borderColorChange {
+        0% {
+          border-color: #ff6b6b;
+        }
+        33% {
+          border-color: #4ecdc4;
+        }
+        66% {
+          border-color: #45b7d1;
+        }
+        100% {
+          border-color: #ff6b6b;
+        }
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 100px;
+        color: #fff;
+        font-size: 1.2rem;
+        text-shadow: 2px 2px 0px #000;
+      }
+
+      @media (max-width: 768px) {
+        .title {
+          font-size: 2.5rem;
+        }
+        .main-image {
+          max-width: 90%;
+        }
+        .cta-button {
+          font-size: 1.5rem;
+          padding: 15px 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1 class="title">🥫 AUTISM STACK 100 🥫</h1>
+        <div class="subtitle">Born Stacking 🚀</div>
+      </div>
+
+      <div class="main-image-container">
+        <img
+          src="stacking-cans.gif"
+          alt="Classic Can Stacking Meme"
+          class="main-image"
+        />
+        />
+      </div>
+
+      <div class="features">
+        <div class="feature-card">
+          <h3 class="feature-title">🎯 100% Stacked</h3>
+          <p>
+            Just like the legendary can tower, our community is built on
+            precision, focus, and unwavering dedication! Every holder is a
+            master stacker! 🥫
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <h3 class="feature-title">🚀 Solana Powered</h3>
+          <p>
+            Built on the fastest blockchain because stacking cans requires
+            lightning-fast reflexes! Low fees, high stacks! ⚡
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <h3 class="feature-title">🐐 Community Driven</h3>
+          <p>
+            Join our herd of can-stacking enthusiasts! Together we'll build the
+            ultimate tower to the stars! 🌟
+          </p>
+        </div>
+      </div>
+
+      <div class="tokenomics">
+        <h2 style="font-size: 2.5rem; color: #ff6b6b; margin-bottom: 20px">
+          🧩 EVER FEEL LIKE YOU ARE BUILT A LITTLE DIFFERENT? 🧩
+        </h2>
+        <p style="font-size: 1.3rem; margin: 15px 0; line-height: 1.6">
+          Maybe you stacked cans just like this as a kid—and perhaps you're still stacking today. This
+          future warrior of the trenches, meticulously lining up cans, has
+          become an iconic symbol of intense focus, calm amidst chaos, and a
+          unique brilliance that the world doesn't always understand—but
+          desperately needs. 🌟
+        </p>
+      
+        <div class="image-container">
+          <img src="kid-stacking.jpg" alt="kid stacking cans" class="stacking-image" />
+        </div>
+      
+        <p style="font-size: 1.3rem; margin: 15px 0; line-height: 1.6">
+          And if you look at this image and think: <em>"Yeah… I get it."</em> Then you're in the right place.
+        </p>
+        <p style="font-size: 1.4rem; margin: 20px 0; line-height: 1.6; color: #ff6b6b; font-weight: bold;">
+          💠 $AS100 — FOR THE STACKERS
+        </p>
+        <p style="font-size: 1.3rem; margin: 15px 0; line-height: 1.6">
+          Whether you're neurodivergent, an outsider, a builder, or just <strong>someone who thinks differently</strong> — this coin's for you.
+          We're not memeing for the sake of it. We're <strong>stacking with purpose.</strong>
+        </p>
+        
+        <p style="font-size: 1.5rem; margin-top: 25px; color: #ff1744">
+          <strong>🚀 Launching on Pump.fun! 🚀</strong>
+        </p>
+        <p style="font-size: 1.2rem; margin: 10px 0">
+          <strong>1 Billion Supply | LP Burnt Forever</strong>
+        </p>
+      
+        <div style="text-align: center; margin: 30px 0;">
+          <a href="#" class="cta-button">🥫 BUY $STACK 🥫</a>
+          <a href="#" class="cta-button">📈 PUMP.FUN 📈</a>
+          <a href="#" class="cta-button">🐦 TWITTER 🐦</a>
+        </div>
+      </div>
+      
+      <div class="footer">
+        <p>🥫 Remember: Always stack responsibly! 🥫</p>
+        <p>Contract Address: [INSERT SOLANA CONTRACT HERE]</p>
+        <p style="margin-top: 20px; font-size: 0.9rem">
+          Disclaimer: This is a meme coin. Do your own research. Not financial
+          advice. May cause uncontrollable urges to stack cans.
+        </p>
+      </div>
+
+    <script>
+      // Create falling cans
+      function createFallingCan() {
+        const can = document.createElement("div");
+        can.className = "falling-can";
+        can.style.left = Math.random() * 100 + "vw";
+        can.style.animationDuration = Math.random() * 3 + 2 + "s";
+        can.style.background = `linear-gradient(45deg, 
+                hsl(${Math.random() * 360}, 70%, 60%), 
+                hsl(${Math.random() * 360}, 70%, 60%))`;
+        document.body.appendChild(can);
+
+        setTimeout(() => {
+          can.remove();
+        }, 5000);
+      }
+
+      // Create flying rockets
+      function createRocket() {
+        const rocket = document.createElement("div");
+        rocket.className = "rocket";
+        rocket.innerHTML = "🚀";
+        rocket.style.top = Math.random() * 80 + "vh";
+        rocket.style.animationDuration = Math.random() * 4 + 3 + "s";
+        document.body.appendChild(rocket);
+
+        setTimeout(() => {
+          rocket.remove();
+        }, 7000);
+      }
+
+      // Create flying goats
+      function createGoat() {
+        const goat = document.createElement("div");
+        goat.className = "goat";
+        goat.innerHTML = "🐐";
+        goat.style.top = Math.random() * 60 + "vh";
+        goat.style.animationDuration = Math.random() * 5 + 4 + "s";
+        document.body.appendChild(goat);
+
+        setTimeout(() => {
+          goat.remove();
+        }, 9000);
+      }
+
+      // Create bouncing garden gnomes
+      function createGooglyEye() {
+        const eye = document.createElement("div");
+        eye.className = "googly-eye";
+        eye.innerHTML = "🧙‍♂️";
+        eye.style.left = Math.random() * 85 + "vw";
+        eye.style.top = Math.random() * 70 + "vh";
+        eye.style.animationDuration = Math.random() * 2 + 1.5 + "s";
+        document.body.appendChild(eye);
+
+        setTimeout(() => {
+          if (eye.parentNode) eye.remove();
+        }, 8000);
+      }
+
+      // Create floating 100 emojis
+      function createHundredEmoji() {
+        const hundred = document.createElement("div");
+        hundred.className = "hundred-emoji";
+        hundred.innerHTML = "100";
+        hundred.style.left = Math.random() * 85 + "vw";
+        hundred.style.top = Math.random() * 70 + "vh";
+        hundred.style.animationDuration = Math.random() * 2 + 1.5 + "s";
+        hundred.style.color = "#ff1493";
+        hundred.style.fontWeight = "bold";
+        hundred.style.textShadow = "2px 2px 0px #000";
+        document.body.appendChild(hundred);
+
+        setTimeout(() => {
+          if (hundred.parentNode) hundred.remove();
+        }, 8000);
+      }
+
+      // Start the chaos!
+      setInterval(createFallingCan, 800);
+      setInterval(createRocket, 2000);
+      setInterval(createGoat, 3000);
+      setInterval(createGooglyEye, 2500);
+      setInterval(createHundredEmoji, 2000);
+
+      // Add some click effects
+      document.addEventListener("click", function (e) {
+        const colors = [
+          "#ff6b6b",
+          "#4ecdc4",
+          "#45b7d1",
+          "#96ceb4",
+          "#ffeaa7",
+          "#dda0dd",
+        ];
+        const emojis = ["🥫", "🚀", "🐐", "📈", "💎", "🌙", "⚡", "🧙‍♂️", "💯"];
+
+        for (let i = 0; i < 5; i++) {
+          const particle = document.createElement("div");
+          particle.innerHTML =
+            emojis[Math.floor(Math.random() * emojis.length)];
+          particle.style.position = "fixed";
+          particle.style.left = e.clientX + "px";
+          particle.style.top = e.clientY + "px";
+          particle.style.fontSize = "20px";
+          particle.style.pointerEvents = "none";
+          particle.style.zIndex = "1000";
+          particle.style.animation = `
+                    particle-explosion 1s ease-out forwards
+                `;
+
+          const keyframes = `
+                    @keyframes particle-explosion {
+                        0% { transform: translate(0, 0) scale(1); opacity: 1; }
+                        100% { 
+                            transform: translate(${
+                              (Math.random() - 0.5) * 200
+                            }px, ${(Math.random() - 0.5) * 200}px) scale(0); 
+                            opacity: 0; 
+                        }
+                    }
+                `;
+
+          if (!document.querySelector("#particle-style")) {
+            const style = document.createElement("style");
+            style.id = "particle-style";
+            style.textContent = keyframes;
+            document.head.appendChild(style);
+          }
+
+          document.body.appendChild(particle);
+
+          setTimeout(() => {
+            particle.remove();
+          }, 1000);
+        }
+      });
+
+      // Konami code easter egg
+      let konamiCode = [];
+      const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+
+      document.addEventListener("keydown", function (e) {
+        konamiCode.push(e.keyCode);
+        if (konamiCode.length > konamiSequence.length) {
+          konamiCode.shift();
+        }
+
+        if (JSON.stringify(konamiCode) === JSON.stringify(konamiSequence)) {
+          // MEGA CHAOS MODE!
+          document.body.style.animation = "shake 0.1s infinite";
+
+          for (let i = 0; i < 50; i++) {
+            setTimeout(() => {
+              createFallingCan();
+              createRocket();
+              createGoat();
+              createGooglyEye();
+              createHundredEmoji();
+            }, i * 100);
+          }
+
+          setTimeout(() => {
+            document.body.style.animation = "";
+          }, 5000);
+        }
+      });
+    </script>
+  </body>
+</html>
