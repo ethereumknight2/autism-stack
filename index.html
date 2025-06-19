@@ -206,6 +206,8 @@
         font-size: 1.3rem;
         line-height: 1.6;
         margin: 15px 0;
+        text-shadow: none;
+        font-weight: 500;
       }
 
       @keyframes borderColorChange {
@@ -268,6 +270,8 @@
         color: #333;
         font-size: 1.2rem;
         margin: 15px 0;
+        text-shadow: none;
+        font-weight: 500;
       }
 
       .stat {
@@ -568,6 +572,8 @@
       let gameRunning = false;
       let gamePaused = false;
       let mouseX = 300;
+      let lastUIUpdate = 0;
+      let displayedStability = 100;
 
       // Sound effects (simple beep sounds)
       const audioContext = new (window.AudioContext ||
@@ -902,24 +908,47 @@
       }
 
       function updateUI() {
+        // Only update UI every 10 frames to prevent flickering
+        const now = Date.now();
+        if (now - lastUIUpdate < 100) return; // Update max every 100ms
+        lastUIUpdate = now;
+
         document.getElementById("score").textContent = score;
         document.getElementById("best").textContent = best;
-        document.getElementById("stability").textContent =
-          Math.max(0, Math.floor(stability)) + "%";
 
-        const stabilitySpan = document.getElementById("stability");
-        if (stability < 20) {
-          stabilitySpan.style.color = "#ff3838";
-          stabilitySpan.parentElement.style.animation = "shake 0.2s infinite";
-        } else if (stability < 40) {
-          stabilitySpan.style.color = "#ff6b6b";
-          stabilitySpan.parentElement.style.animation = "none";
-        } else if (stability < 60) {
-          stabilitySpan.style.color = "#ffa500";
-          stabilitySpan.parentElement.style.animation = "none";
-        } else {
-          stabilitySpan.style.color = "#4ecdc4";
-          stabilitySpan.parentElement.style.animation = "none";
+        // Smooth stability changes to prevent flickering
+        const targetStability = Math.round(stability);
+        const diff = targetStability - displayedStability;
+
+        if (Math.abs(diff) > 0) {
+          // Gradually move towards target (prevents sudden jumps)
+          displayedStability += Math.sign(diff) * Math.min(Math.abs(diff), 2);
+
+          const stabilityElement = document.getElementById("stability");
+          stabilityElement.textContent = displayedStability + "%";
+
+          // Update colors based on displayed stability
+          if (displayedStability < 20) {
+            stabilityElement.style.color = "#ff3838";
+            if (!stabilityElement.parentElement.classList.contains("shaking")) {
+              stabilityElement.parentElement.classList.add("shaking");
+              stabilityElement.parentElement.style.animation =
+                "shake 0.2s infinite";
+            }
+          } else {
+            if (stabilityElement.parentElement.classList.contains("shaking")) {
+              stabilityElement.parentElement.classList.remove("shaking");
+              stabilityElement.parentElement.style.animation = "none";
+            }
+
+            if (displayedStability < 40) {
+              stabilityElement.style.color = "#ff6b6b";
+            } else if (displayedStability < 60) {
+              stabilityElement.style.color = "#ffa500";
+            } else {
+              stabilityElement.style.color = "#4ecdc4";
+            }
+          }
         }
       }
 
@@ -1006,11 +1035,19 @@
           }
         }
 
-        // Apply some randomness for realism (±5 points)
-        stabilityScore += (Math.random() - 0.5) * 10;
+        // Apply minimal randomness very rarely
+        if (Math.random() < 0.05) {
+          // Only 5% of the time
+          stabilityScore += (Math.random() - 0.5) * 3; // Very small range
+        }
 
         // Keep stability in bounds
-        stability = Math.max(0, Math.min(100, stabilityScore));
+        const newStability = Math.max(0, Math.min(100, stabilityScore));
+
+        // Only update stability if change is significant (reduces flickering)
+        if (Math.abs(newStability - stability) > 0.5) {
+          stability = newStability;
+        }
 
         // Game over if stability hits 0 or below
         if (stability <= 0) {
