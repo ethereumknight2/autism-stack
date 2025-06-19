@@ -4,9 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>🥫 AUTISM STACK 100 🚀 - The Ultimate Can Stacking Memecoin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
     <style>
-      @import url("https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap");
-
       * {
         margin: 0;
         padding: 0;
@@ -25,9 +30,10 @@
           #ff69b4
         );
         background-size: 400% 400%;
-        animation: gradientShift 3s ease infinite;
+        animation: gradientShift 6s ease infinite;
         overflow-x: hidden;
         min-height: 100vh;
+        user-select: none;
       }
 
       @keyframes gradientShift {
@@ -45,24 +51,25 @@
       .container {
         position: relative;
         z-index: 10;
-        max-width: 1200px;
+        max-width: 800px;
         margin: 0 auto;
         padding: 20px;
       }
 
-      .header {
+      h1,
+      h2,
+      h3,
+      p {
         text-align: center;
-        margin-bottom: 50px;
-        position: relative;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
       }
 
-      .title {
+      h1 {
         font-size: 4rem;
         font-weight: 700;
-        color: #fff;
-        text-shadow: 3px 3px 0px #000, 6px 6px 0px #ff1744;
+        margin-bottom: 20px;
         animation: titleBounce 2s ease-in-out infinite;
-        transform-origin: center;
       }
 
       @keyframes titleBounce {
@@ -71,7 +78,7 @@
           transform: scale(1) rotate(-2deg);
         }
         50% {
-          transform: scale(1.1) rotate(2deg);
+          transform: scale(1.05) rotate(2deg);
         }
       }
 
@@ -81,10 +88,12 @@
         background: linear-gradient(45deg, #3bd5ff, #1ee92c);
         padding: 10px 20px;
         border-radius: 50px;
-        display: inline-block;
-        margin-top: 20px;
+        display: block;
+        margin: 20px auto;
         animation: wiggle 1.5s ease-in-out infinite;
         text-shadow: 1px 1px 0px #fff;
+        text-align: center;
+        width: fit-content;
       }
 
       @keyframes wiggle {
@@ -100,76 +109,18 @@
         }
       }
 
-      .main-image-container {
-        text-align: center;
-        margin: 50px 0;
-        position: relative;
-      }
-
-      .main-image {
-        max-width: 400px;
-        border: 8px solid #fff;
+      .tokenomics {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
         border-radius: 20px;
-        box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-        animation: imageFloat 3s ease-in-out infinite;
-      }
-
-      @keyframes imageFloat {
-        0%,
-        100% {
-          transform: translateY(0px) rotate(0deg);
-        }
-        33% {
-          transform: translateY(-10px) rotate(1deg);
-        }
-        66% {
-          transform: translateY(5px) rotate(-1deg);
-        }
-      }
-
-      .features {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        margin: 50px 0;
-      }
-
-      .feature-card {
-        background: rgba(255, 255, 255, 0.9);
         padding: 30px;
-        border-radius: 20px;
+        margin: 40px 0;
         text-align: center;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         animation: cardFloat 4s ease-in-out infinite;
-        border: 5px solid;
-        border-image: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1) 1;
       }
 
-      .feature-card:nth-child(2) {
-        animation-delay: 1s;
-      }
-
-      .feature-card:nth-child(3) {
-        animation-delay: 2s;
-      }
-
-      @keyframes cardFloat {
-        0%,
-        100% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-15px);
-        }
-      }
-
-      .feature-title {
-        font-size: 1.8rem;
-        color: #333;
-        margin-bottom: 15px;
-        text-shadow: 1px 1px 0px #fff;
-      }
-
+      /* CTA Button Styles */
       .cta-button {
         background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
         color: white;
@@ -185,6 +136,7 @@
         margin: 30px 10px;
         text-decoration: none;
         display: inline-block;
+        transition: all 0.3s ease;
       }
 
       @keyframes pulse {
@@ -201,6 +153,7 @@
 
       .cta-button:hover {
         animation: shake 0.5s infinite;
+        transform: translateY(-2px);
       }
 
       @keyframes shake {
@@ -216,7 +169,168 @@
         }
       }
 
-      /* Falling cans animation */
+      .features p {
+        font-size: 1.3rem;
+        line-height: 1.8;
+      }
+
+      @keyframes cardFloat {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .tokenomics {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 25px;
+        margin: 50px 0;
+        text-align: center;
+        border: 6px dashed #ff6b6b;
+        animation: borderColorChange 3s infinite;
+        color: #333;
+      }
+
+      .tokenomics h2 {
+        color: #ff6b6b;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+      }
+
+      .tokenomics p {
+        color: #333;
+        font-size: 1.3rem;
+        line-height: 1.6;
+        margin: 15px 0;
+      }
+
+      @keyframes borderColorChange {
+        0% {
+          border-color: #ff6b6b;
+        }
+        33% {
+          border-color: #4ecdc4;
+        }
+        66% {
+          border-color: #45b7d1;
+        }
+        100% {
+          border-color: #ff6b6b;
+        }
+      }
+
+      img {
+        display: block;
+        max-width: 400px;
+        width: 100%;
+        margin: 30px auto;
+        border: 8px solid #fff;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        animation: imageFloat 3s ease-in-out infinite;
+      }
+
+      @keyframes imageFloat {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        33% {
+          transform: translateY(-10px) rotate(1deg);
+        }
+        66% {
+          transform: translateY(5px) rotate(-1deg);
+        }
+      }
+
+      /* Game Section */
+      #game-section {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 40px;
+        border-radius: 25px;
+        margin: 50px 0;
+        text-align: center;
+        border: 6px dashed #4ecdc4;
+        animation: borderColorChange 3s infinite;
+      }
+
+      #game-section h2 {
+        color: #ff6b6b;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+      }
+
+      #game-section p {
+        color: #333;
+        font-size: 1.2rem;
+        margin: 15px 0;
+      }
+
+      .stat {
+        display: inline-block;
+        margin: 0 15px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        padding: 10px 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      canvas {
+        background: rgba(255, 255, 255, 0.9);
+        border: 4px solid #ff6b6b;
+        border-radius: 15px;
+        margin: 20px auto;
+        display: block;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        max-width: 100%;
+      }
+
+      button {
+        font-family: "Comic Neue", cursive;
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 30px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        margin: 10px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .footer {
+        text-align: center;
+        margin-top: 100px;
+        color: #fff;
+        font-size: 1.2rem;
+        text-shadow: 2px 2px 0px #000;
+        padding: 40px 0;
+      }
+
+      .footer p {
+        margin: 10px 0;
+      }
+
+      .footer em {
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+
+      /* Floating Animations */
       .falling-can {
         position: fixed;
         width: 30px;
@@ -236,7 +350,6 @@
         }
       }
 
-      /* Flying rockets */
       .rocket {
         position: fixed;
         font-size: 2rem;
@@ -253,7 +366,6 @@
         }
       }
 
-      /* Flying goats */
       .goat {
         position: fixed;
         font-size: 2.5rem;
@@ -270,7 +382,6 @@
         }
       }
 
-      /* Flying 100 emojis */
       .hundred-emoji {
         position: fixed;
         font-size: 2rem;
@@ -293,7 +404,6 @@
         }
       }
 
-      /* Bouncing garden gnomes */
       .googly-eye {
         position: fixed;
         font-size: 1.8rem;
@@ -317,137 +427,124 @@
         }
       }
 
-      .tokenomics {
-        background: rgba(255, 255, 255, 0.95);
-        padding: 40px;
-        border-radius: 25px;
-        margin: 50px 0;
-        text-align: center;
-        border: 6px dashed #ff6b6b;
-        animation: borderColorChange 3s infinite;
-      }
-
-      @keyframes borderColorChange {
-        0% {
-          border-color: #ff6b6b;
-        }
-        33% {
-          border-color: #4ecdc4;
-        }
-        66% {
-          border-color: #45b7d1;
-        }
+      @keyframes shake {
+        0%,
         100% {
-          border-color: #ff6b6b;
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-3px);
+        }
+        75% {
+          transform: translateX(3px);
         }
       }
 
-      .footer {
-        text-align: center;
-        margin-top: 100px;
-        color: #fff;
-        font-size: 1.2rem;
-        text-shadow: 2px 2px 0px #000;
-      }
-
+      /* Responsive */
       @media (max-width: 768px) {
-        .title {
+        h1 {
           font-size: 2.5rem;
         }
-        .main-image {
-          max-width: 90%;
+        h2 {
+          font-size: 1.8rem;
         }
-        .cta-button {
-          font-size: 1.5rem;
-          padding: 15px 30px;
+        .container {
+          padding: 10px;
+        }
+        .tokenomics,
+        #game-section {
+          padding: 20px;
+          margin: 30px 0;
+        }
+        canvas {
+          width: 95% !important;
+          height: 500px !important;
+        }
+        .stat {
+          margin: 5px;
+          padding: 8px 12px;
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 2rem;
+        }
+        canvas {
+          height: 400px !important;
+        }
+        .tokenomics h2,
+        #game-section h2 {
+          font-size: 2rem;
+        }
+        .tokenomics p,
+        #game-section p {
+          font-size: 1.1rem;
         }
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <div class="header">
-        <h1 class="title">🥫 AUTISM STACK 100 🥫</h1>
-        <div class="subtitle">Born Stacking 🚀</div>
+      <h1>🥫 AUTISM STACK 100 🥫</h1>
+      <div class="subtitle">"You're not weird. You're just early."</div>
+
+      <section class="features">
+        <p>
+          👏 Born From the Meme. Forged in Focus.<br />
+          🚀 Solana = Autist-Speed<br />
+          🧩 Cult of the Stack
+        </p>
+      </section>
+
+      <section class="tokenomics">
+        <h2>🧩 YOU'RE NOT WEIRD. YOU'RE JUST EARLY. 🧩</h2>
+        <p>
+          That can-stacking image? It wasn't a meme. It was a calling. A shrine
+          to precision. A photo of what every quant, dev, and autist knew deep
+          down: order is divine.
+        </p>
+        <img src="kid-stacking.jpg" alt="Stacker" />
+        <p>
+          If you've ever rebuilt an API for fun, reorganized your icons by hue,
+          or learned Solidity on a Sunday for "clarity"... this is your tribe.
+        </p>
+        <p style="font-size: 1.4rem; font-weight: bold; color: #ff6b6b">
+          🔠 $AS100 — A MEME, A MOVEMENT
+        </p>
+        <p>
+          <strong>Launching on Pump.fun | 1B Supply | LP Burned Forever</strong>
+        </p>
+      </section>
+
+      <section id="game-section">
+        <h2>🎮 STACK SIMULATOR 9000 🎮</h2>
+        <p>
+          Enter the sacred ritual of stackers. Test your discipline. Channel
+          your inner chart-reading deity. Drop cans. Ascend.
+        </p>
+        <p><em>Legend says reaching 13 cans reveals the dev's wallet.</em></p>
+
+        <div class="stat">Score: <span id="score">0</span></div>
+        <div class="stat">Best: <span id="best">0</span></div>
+        <div class="stat">Stability: <span id="stability">100%</span></div>
+
+        <canvas id="gameCanvas" width="600" height="800"></canvas>
+
+        <div style="text-align: center">
+          <button onclick="dropCan()">📦 Drop Can</button>
+          <button onclick="resetGame()">🔄 Reset</button>
+          <button onclick="pauseGame()">⏸️ Pause</button>
+        </div>
+      </section>
+
+      <div style="text-align: center; margin: 30px 0">
+        <a href="#" class="cta-button">🥫 BUY $STACK 🥫</a>
+        <a href="#" class="cta-button">📈 PUMP.FUN 📈</a>
+        <a href="#" class="cta-button">🐦 TWITTER 🐦</a>
       </div>
 
-      <div class="main-image-container">
-        <img
-          src="stacking-cans.gif"
-          alt="Classic Can Stacking Meme"
-          class="main-image"
-        />
-        />
-      </div>
-
-      <div class="features">
-        <div class="feature-card">
-          <h3 class="feature-title">🎯 100% Stacked</h3>
-          <p>
-            Just like the legendary can tower, our community is built on
-            precision, focus, and unwavering dedication! Every holder is a
-            master stacker! 🥫
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <h3 class="feature-title">🚀 Solana Powered</h3>
-          <p>
-            Built on the fastest blockchain because stacking cans requires
-            lightning-fast reflexes! Low fees, high stacks! ⚡
-          </p>
-        </div>
-
-        <div class="feature-card">
-          <h3 class="feature-title">🐐 Community Driven</h3>
-          <p>
-            Join our herd of can-stacking enthusiasts! Together we'll build the
-            ultimate tower to the stars! 🌟
-          </p>
-        </div>
-      </div>
-
-      <div class="tokenomics">
-        <h2 style="font-size: 2.5rem; color: #ff6b6b; margin-bottom: 20px">
-          🧩 EVER FEEL LIKE YOU ARE BUILT A LITTLE DIFFERENT? 🧩
-        </h2>
-        <p style="font-size: 1.3rem; margin: 15px 0; line-height: 1.6">
-          Maybe you stacked cans just like this as a kid—and perhaps you're still stacking today. This
-          future warrior of the trenches, meticulously lining up cans, has
-          become an iconic symbol of intense focus, calm amidst chaos, and a
-          unique brilliance that the world doesn't always understand—but
-          desperately needs. 🌟
-        </p>
-      
-        <div class="image-container">
-          <img src="kid-stacking.jpg" alt="kid stacking cans" class="stacking-image" />
-        </div>
-      
-        <p style="font-size: 1.3rem; margin: 15px 0; line-height: 1.6">
-          And if you look at this image and think: <em>"Yeah… I get it."</em> Then you're in the right place.
-        </p>
-        <p style="font-size: 1.4rem; margin: 20px 0; line-height: 1.6; color: #ff6b6b; font-weight: bold;">
-          💠 $AS100 — FOR THE STACKERS
-        </p>
-        <p style="font-size: 1.3rem; margin: 15px 0; line-height: 1.6">
-          Whether you're neurodivergent, an outsider, a builder, or just <strong>someone who thinks differently</strong> — this coin's for you.
-          We're not memeing for the sake of it. We're <strong>stacking with purpose.</strong>
-        </p>
-        
-        <p style="font-size: 1.5rem; margin-top: 25px; color: #ff1744">
-          <strong>🚀 Launching on Pump.fun! 🚀</strong>
-        </p>
-        <p style="font-size: 1.2rem; margin: 10px 0">
-          <strong>1 Billion Supply | LP Burnt Forever</strong>
-        </p>
-      
-        <div style="text-align: center; margin: 30px 0;">
-          <a href="#" class="cta-button">🥫 BUY $STACK 🥫</a>
-          <a href="#" class="cta-button">📈 PUMP.FUN 📈</a>
-          <a href="#" class="cta-button">🐦 TWITTER 🐦</a>
-        </div>
-      </div>
-      
       <div class="footer">
         <p>🥫 Remember: Always stack responsibly! 🥫</p>
         <p>Contract Address: [INSERT SOLANA CONTRACT HERE]</p>
@@ -456,25 +553,633 @@
           advice. May cause uncontrollable urges to stack cans.
         </p>
       </div>
+    </div>
 
     <script>
-      // Create falling cans
+      // Game variables
+      const canvas = document.getElementById("gameCanvas");
+      const ctx = canvas.getContext("2d");
+
+      let cans = [];
+      let currentCan = null;
+      let score = 0;
+      let best = localStorage.getItem("autismStack100Score") || 0;
+      let stability = 100;
+      let gameRunning = false;
+      let gamePaused = false;
+      let mouseX = 300;
+
+      // Sound effects (simple beep sounds)
+      const audioContext = new (window.AudioContext ||
+        window.webkitAudioContext)();
+
+      function playBeep(frequency = 440, duration = 100) {
+        if (audioContext.state === "suspended") {
+          audioContext.resume();
+        }
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+
+        oscillator.frequency.value = frequency;
+        oscillator.type = "square";
+
+        gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(
+          0.01,
+          audioContext.currentTime + duration / 1000
+        );
+
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + duration / 1000);
+      }
+
+      // Can class
+      class Can {
+        constructor(x, y, isDropping = false) {
+          this.x = x;
+          this.y = y;
+          this.width = 30;
+          this.height = 40;
+          this.vx = 0;
+          this.vy = 0;
+          this.isDropping = isDropping;
+          this.settled = false;
+          this.settleTimer = 0;
+          this.color = this.getRandomColor();
+        }
+
+        getRandomColor() {
+          const colors = [
+            "#ff6b6b",
+            "#4ecdc4",
+            "#45b7d1",
+            "#96ceb4",
+            "#ffeaa7",
+            "#dda0dd",
+          ];
+          return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        update() {
+          if (this.isDropping || !this.settled) {
+            // Apply gravity
+            this.vy += 0.4;
+
+            // Update position
+            this.x += this.vx;
+            this.y += this.vy;
+
+            // Apply friction
+            this.vx *= 0.95;
+
+            // Ground collision
+            const groundY = canvas.height - 30;
+            if (this.y + this.height >= groundY) {
+              this.y = groundY - this.height;
+              this.vy = -this.vy * 0.3;
+              this.vx *= 0.8;
+
+              if (Math.abs(this.vy) < 2 && Math.abs(this.vx) < 1) {
+                this.vy = 0;
+                this.checkSettled();
+              }
+            }
+
+            // Wall collisions
+            if (this.x < 0) {
+              this.x = 0;
+              this.vx = -this.vx * 0.7;
+            }
+            if (this.x + this.width > canvas.width) {
+              this.x = canvas.width - this.width;
+              this.vx = -this.vx * 0.7;
+            }
+
+            // Check collisions with other cans
+            this.checkCanCollisions();
+          }
+        }
+
+        checkCanCollisions() {
+          cans.forEach((otherCan) => {
+            if (otherCan !== this && this.isColliding(otherCan)) {
+              this.resolveCollision(otherCan);
+            }
+          });
+        }
+
+        isColliding(other) {
+          return (
+            this.x < other.x + other.width &&
+            this.x + this.width > other.x &&
+            this.y < other.y + other.height &&
+            this.y + this.height > other.y
+          );
+        }
+
+        resolveCollision(other) {
+          const dx = this.x + this.width / 2 - (other.x + other.width / 2);
+          const dy = this.y + this.height / 2 - (other.y + other.height / 2);
+
+          const overlapX = Math.max(
+            0,
+            Math.min(this.x + this.width, other.x + other.width) -
+              Math.max(this.x, other.x)
+          );
+          const overlapY = Math.max(
+            0,
+            Math.min(this.y + this.height, other.y + other.height) -
+              Math.max(this.y, other.y)
+          );
+
+          if (overlapX > 0 && overlapY > 0) {
+            if (overlapX < overlapY) {
+              // Horizontal separation
+              const pushX = overlapX / 2 + 1;
+              if (dx > 0) {
+                this.x += pushX;
+                other.x -= pushX;
+              } else {
+                this.x -= pushX;
+                other.x += pushX;
+              }
+              this.vx *= 0.8;
+              other.vx *= 0.8;
+            } else {
+              // Vertical separation
+              const pushY = overlapY / 2 + 1;
+              if (dy > 0) {
+                this.y += pushY;
+                other.y -= pushY;
+                this.vy = Math.max(this.vy, 0.5);
+                other.vy = Math.min(other.vy, -0.5);
+              } else {
+                this.y -= pushY;
+                other.y += pushY;
+                this.vy = Math.min(this.vy, -0.5);
+                other.vy = Math.max(other.vy, 0.5);
+              }
+            }
+
+            this.settled = false;
+            this.settleTimer = 0;
+            other.settled = false;
+            other.settleTimer = 0;
+          }
+        }
+
+        checkSettled() {
+          if (Math.abs(this.vx) < 0.3 && Math.abs(this.vy) < 0.3) {
+            this.settleTimer++;
+            if (this.settleTimer > 45) {
+              this.settled = true;
+              this.isDropping = false;
+              this.vx = 0;
+              this.vy = 0;
+            }
+          } else {
+            this.settleTimer = 0;
+          }
+        }
+
+        draw() {
+          ctx.save();
+
+          // Enhanced shadow with blur effect
+          ctx.shadowColor = "rgba(0,0,0,0.4)";
+          ctx.shadowBlur = 4;
+          ctx.shadowOffsetX = 3;
+          ctx.shadowOffsetY = 3;
+
+          // Can body with improved gradient
+          const gradient = ctx.createLinearGradient(
+            this.x,
+            this.y,
+            this.x + this.width,
+            this.y + this.height
+          );
+          gradient.addColorStop(0, this.color);
+          gradient.addColorStop(0.5, this.darkenColor(this.color, 0.1));
+          gradient.addColorStop(1, this.darkenColor(this.color, 0.3));
+
+          ctx.fillStyle = gradient;
+          ctx.fillRect(this.x, this.y, this.width, this.height);
+
+          // Reset shadow for other elements
+          ctx.shadowColor = "transparent";
+          ctx.shadowBlur = 0;
+          ctx.shadowOffsetX = 0;
+          ctx.shadowOffsetY = 0;
+
+          // Can rim with metallic effect
+          const rimGradient = ctx.createLinearGradient(
+            this.x,
+            this.y,
+            this.x,
+            this.y + 6
+          );
+          rimGradient.addColorStop(0, "#95a5a6");
+          rimGradient.addColorStop(0.5, "#34495e");
+          rimGradient.addColorStop(1, "#2c3e50");
+
+          ctx.fillStyle = rimGradient;
+          ctx.fillRect(this.x, this.y, this.width, 3);
+          ctx.fillRect(this.x, this.y + this.height - 3, this.width, 3);
+
+          // Enhanced label with outline
+          ctx.fillStyle = "white";
+          ctx.font = "bold 14px Comic Neue";
+          ctx.textAlign = "center";
+          ctx.strokeStyle = "black";
+          ctx.lineWidth = 2;
+          ctx.strokeText(
+            "🥫",
+            this.x + this.width / 2,
+            this.y + this.height / 2 + 4
+          );
+          ctx.fillText(
+            "🥫",
+            this.x + this.width / 2,
+            this.y + this.height / 2 + 4
+          );
+
+          // Enhanced stability indicator
+          if (!this.settled && this.settleTimer < 20) {
+            ctx.strokeStyle = "#ff3838";
+            ctx.lineWidth = 3;
+            ctx.setLineDash([5, 5]);
+            ctx.strokeRect(
+              this.x - 3,
+              this.y - 3,
+              this.width + 6,
+              this.height + 6
+            );
+            ctx.setLineDash([]);
+          }
+          // Show support indicator for well-supported cans
+          else if (this.settled && this.y + this.height < canvas.height - 30) {
+            ctx.strokeStyle = "#4ecdc4";
+            ctx.lineWidth = 2;
+            ctx.setLineDash([3, 3]);
+            ctx.strokeRect(
+              this.x - 1,
+              this.y - 1,
+              this.width + 2,
+              this.height + 2
+            );
+            ctx.setLineDash([]);
+          }
+
+          ctx.restore();
+        }
+
+        darkenColor(color, amount) {
+          const hex = color.replace("#", "");
+          const r = Math.max(0, parseInt(hex.substr(0, 2), 16) - amount * 255);
+          const g = Math.max(0, parseInt(hex.substr(2, 2), 16) - amount * 255);
+          const b = Math.max(0, parseInt(hex.substr(4, 2), 16) - amount * 255);
+          return `rgb(${Math.floor(r)}, ${Math.floor(g)}, ${Math.floor(b)})`;
+        }
+      }
+
+      // Game functions
+      function initGame() {
+        best = localStorage.getItem("autismStack100Score") || 0;
+        document.getElementById("best").textContent = best;
+
+        // Responsive canvas
+        const maxWidth = Math.min(600, window.innerWidth - 40);
+        canvas.width = maxWidth;
+        canvas.height = Math.min(800, window.innerHeight * 0.7);
+
+        startGame();
+      }
+
+      function startGame() {
+        cans = [];
+        score = 0;
+        gameRunning = true;
+        gamePaused = false;
+        stability = 100;
+        mouseX = canvas.width / 2;
+
+        spawnCan();
+        updateUI();
+        gameLoop();
+      }
+
+      function spawnCan() {
+        if (currentCan) return;
+        currentCan = new Can(mouseX - 15, 50);
+        currentCan.isDropping = false;
+      }
+
+      function dropCan() {
+        if (!currentCan || !gameRunning || gamePaused) return;
+
+        playBeep(440, 100);
+        currentCan.isDropping = true;
+        cans.push(currentCan);
+        currentCan = null;
+        score++;
+
+        setTimeout(() => {
+          if (gameRunning) spawnCan();
+        }, 500);
+      }
+
+      function resetGame() {
+        startGame();
+      }
+
+      function pauseGame() {
+        gamePaused = !gamePaused;
+        const btn = document.querySelector('button[onclick="pauseGame()"]');
+        btn.textContent = gamePaused ? "▶️ Resume" : "⏸️ Pause";
+      }
+
+      function updateUI() {
+        document.getElementById("score").textContent = score;
+        document.getElementById("best").textContent = best;
+        document.getElementById("stability").textContent =
+          Math.max(0, Math.floor(stability)) + "%";
+
+        const stabilitySpan = document.getElementById("stability");
+        if (stability < 20) {
+          stabilitySpan.style.color = "#ff3838";
+          stabilitySpan.parentElement.style.animation = "shake 0.2s infinite";
+        } else if (stability < 40) {
+          stabilitySpan.style.color = "#ff6b6b";
+          stabilitySpan.parentElement.style.animation = "none";
+        } else if (stability < 60) {
+          stabilitySpan.style.color = "#ffa500";
+          stabilitySpan.parentElement.style.animation = "none";
+        } else {
+          stabilitySpan.style.color = "#4ecdc4";
+          stabilitySpan.parentElement.style.animation = "none";
+        }
+      }
+
+      function checkGameOver() {
+        // Check for fallen cans
+        const lostCans = cans.filter(
+          (can) =>
+            can.x + can.width < 0 ||
+            can.x > canvas.width ||
+            can.y > canvas.height ||
+            (can.y + can.height >= canvas.height - 30 && Math.abs(can.vx) > 8)
+        );
+
+        if (lostCans.length > 0) {
+          gameOver();
+          return true;
+        }
+
+        // Start with full stability
+        let stabilityScore = 100;
+
+        if (cans.length === 0) {
+          stability = 100;
+          return false;
+        }
+
+        // Count actively moving/unsettled cans
+        const movingCans = cans.filter(
+          (can) =>
+            !can.settled || Math.abs(can.vx) > 0.5 || Math.abs(can.vy) > 0.5
+        );
+
+        // Reduce stability based on movement
+        stabilityScore -= movingCans.length * 8;
+
+        // Check for cans that are poorly supported (hanging in air)
+        let unsupportedCans = 0;
+        cans.forEach((can) => {
+          if (can.y + can.height < canvas.height - 35) {
+            // Not on ground
+            let hasGoodSupport = false;
+
+            cans.forEach((otherCan) => {
+              if (otherCan !== can && otherCan.y > can.y) {
+                const horizontalOverlap = Math.max(
+                  0,
+                  Math.min(can.x + can.width, otherCan.x + otherCan.width) -
+                    Math.max(can.x, otherCan.x)
+                );
+                const verticalGap = otherCan.y - (can.y + can.height);
+
+                // Good support = significant overlap and close contact
+                if (horizontalOverlap > can.width * 0.4 && verticalGap < 8) {
+                  hasGoodSupport = true;
+                }
+              }
+            });
+
+            if (!hasGoodSupport) {
+              unsupportedCans++;
+            }
+          }
+        });
+
+        // Heavy penalty for unsupported cans
+        stabilityScore -= unsupportedCans * 20;
+
+        // Check overall stack balance (only for stacks of 4+)
+        if (cans.length >= 4) {
+          const stackCans = cans.filter(
+            (can) => can.y + can.height < canvas.height - 35
+          );
+          if (stackCans.length > 0) {
+            const avgX =
+              stackCans.reduce((sum, can) => sum + can.x + can.width / 2, 0) /
+              stackCans.length;
+            const centerX = canvas.width / 2;
+            const tiltRatio = Math.abs(avgX - centerX) / (canvas.width / 2);
+
+            // Penalty for extreme tilt (over 30% off center)
+            if (tiltRatio > 0.3) {
+              stabilityScore -= (tiltRatio - 0.3) * 60;
+            }
+          }
+        }
+
+        // Apply some randomness for realism (±5 points)
+        stabilityScore += (Math.random() - 0.5) * 10;
+
+        // Keep stability in bounds
+        stability = Math.max(0, Math.min(100, stabilityScore));
+
+        // Game over if stability hits 0 or below
+        if (stability <= 0) {
+          gameOver();
+          return true;
+        }
+
+        return false;
+      }
+
+      function gameOver() {
+        playBeep(220, 500);
+        gameRunning = false;
+
+        if (score > best) {
+          best = score;
+          localStorage.setItem("autismStack100Score", best);
+          alert(`🎉 NEW RECORD! 🎉\nFinal Score: ${score} cans!`);
+        } else {
+          alert(`Stack collapsed at ${score} cans!\nBest: ${best}`);
+        }
+
+        resetGame();
+      }
+
+      function gameLoop() {
+        if (!gameRunning) return;
+
+        if (!gamePaused) {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          // Enhanced background with better grid
+          ctx.strokeStyle = "rgba(255,255,255,0.15)";
+          ctx.lineWidth = 1;
+          for (let i = 0; i < canvas.width; i += 30) {
+            ctx.beginPath();
+            ctx.moveTo(i, 0);
+            ctx.lineTo(i, canvas.height);
+            ctx.stroke();
+          }
+          for (let i = 0; i < canvas.height; i += 30) {
+            ctx.beginPath();
+            ctx.moveTo(0, i);
+            ctx.lineTo(canvas.width, i);
+            ctx.stroke();
+          }
+
+          // Enhanced ground with texture
+          const groundGradient = ctx.createLinearGradient(
+            0,
+            canvas.height - 30,
+            0,
+            canvas.height
+          );
+          groundGradient.addColorStop(0, "rgba(255,255,255,0.6)");
+          groundGradient.addColorStop(1, "rgba(200,200,200,0.8)");
+          ctx.fillStyle = groundGradient;
+          ctx.fillRect(0, canvas.height - 30, canvas.width, 30);
+
+          // Ground pattern
+          ctx.fillStyle = "rgba(0,0,0,0.1)";
+          for (let i = 0; i < canvas.width; i += 15) {
+            ctx.fillRect(i, canvas.height - 30, 8, 30);
+          }
+
+          // Update and draw cans
+          cans.forEach((can) => {
+            can.update();
+            can.draw();
+          });
+
+          // Draw current can with enhanced guides
+          if (currentCan) {
+            currentCan.x = Math.max(
+              0,
+              Math.min(mouseX - 15, canvas.width - 30)
+            );
+
+            // Enhanced drop zone indicator with gradient
+            const dropZoneGradient = ctx.createLinearGradient(
+              currentCan.x,
+              currentCan.y,
+              currentCan.x + currentCan.width,
+              canvas.height
+            );
+            dropZoneGradient.addColorStop(0, "rgba(255,255,255,0.1)");
+            dropZoneGradient.addColorStop(1, "rgba(255,255,255,0.3)");
+            ctx.fillStyle = dropZoneGradient;
+            ctx.fillRect(
+              currentCan.x,
+              currentCan.y,
+              currentCan.width,
+              canvas.height - currentCan.y - 30
+            );
+
+            // Enhanced trajectory line with glow effect
+            ctx.shadowColor = "rgba(255,255,255,0.8)";
+            ctx.shadowBlur = 5;
+            ctx.strokeStyle = "rgba(255,255,255,0.7)";
+            ctx.lineWidth = 3;
+            ctx.setLineDash([8, 8]);
+            ctx.beginPath();
+            ctx.moveTo(
+              currentCan.x + currentCan.width / 2,
+              currentCan.y + currentCan.height
+            );
+            ctx.lineTo(currentCan.x + currentCan.width / 2, canvas.height - 30);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // Reset shadow
+            ctx.shadowColor = "transparent";
+            ctx.shadowBlur = 0;
+
+            currentCan.draw();
+          }
+
+          checkGameOver();
+          updateUI();
+        }
+
+        requestAnimationFrame(gameLoop);
+      }
+
+      // Event listeners
+      canvas.addEventListener("mousemove", (e) => {
+        const rect = canvas.getBoundingClientRect();
+        mouseX = e.clientX - rect.left;
+      });
+
+      canvas.addEventListener("touchmove", (e) => {
+        e.preventDefault();
+        const rect = canvas.getBoundingClientRect();
+        mouseX = e.touches[0].clientX - rect.left;
+      });
+
+      canvas.addEventListener("click", dropCan);
+      canvas.addEventListener("touchstart", (e) => {
+        e.preventDefault();
+        dropCan();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.code === "Space") {
+          e.preventDefault();
+          dropCan();
+        }
+      });
+
+      window.addEventListener("resize", () => {
+        const maxWidth = Math.min(600, window.innerWidth - 40);
+        canvas.width = maxWidth;
+        canvas.height = Math.min(800, window.innerHeight * 0.7);
+      });
+
+      // Background animations
       function createFallingCan() {
         const can = document.createElement("div");
         can.className = "falling-can";
         can.style.left = Math.random() * 100 + "vw";
         can.style.animationDuration = Math.random() * 3 + 2 + "s";
         can.style.background = `linear-gradient(45deg, 
-                hsl(${Math.random() * 360}, 70%, 60%), 
-                hsl(${Math.random() * 360}, 70%, 60%))`;
+              hsl(${Math.random() * 360}, 70%, 60%), 
+              hsl(${Math.random() * 360}, 70%, 60%))`;
         document.body.appendChild(can);
 
-        setTimeout(() => {
-          can.remove();
-        }, 5000);
+        setTimeout(() => can.remove(), 5000);
       }
 
-      // Create flying rockets
       function createRocket() {
         const rocket = document.createElement("div");
         rocket.className = "rocket";
@@ -483,12 +1188,9 @@
         rocket.style.animationDuration = Math.random() * 4 + 3 + "s";
         document.body.appendChild(rocket);
 
-        setTimeout(() => {
-          rocket.remove();
-        }, 7000);
+        setTimeout(() => rocket.remove(), 7000);
       }
 
-      // Create flying goats
       function createGoat() {
         const goat = document.createElement("div");
         goat.className = "goat";
@@ -497,12 +1199,9 @@
         goat.style.animationDuration = Math.random() * 5 + 4 + "s";
         document.body.appendChild(goat);
 
-        setTimeout(() => {
-          goat.remove();
-        }, 9000);
+        setTimeout(() => goat.remove(), 9000);
       }
 
-      // Create bouncing garden gnomes
       function createGooglyEye() {
         const eye = document.createElement("div");
         eye.className = "googly-eye";
@@ -517,11 +1216,10 @@
         }, 8000);
       }
 
-      // Create floating 100 emojis
       function createHundredEmoji() {
         const hundred = document.createElement("div");
         hundred.className = "hundred-emoji";
-        hundred.innerHTML = "100";
+        hundred.innerHTML = "💯";
         hundred.style.left = Math.random() * 85 + "vw";
         hundred.style.top = Math.random() * 70 + "vh";
         hundred.style.animationDuration = Math.random() * 2 + 1.5 + "s";
@@ -535,23 +1233,15 @@
         }, 8000);
       }
 
-      // Start the chaos!
+      // Start background animations
       setInterval(createFallingCan, 800);
       setInterval(createRocket, 2000);
       setInterval(createGoat, 3000);
       setInterval(createGooglyEye, 2500);
       setInterval(createHundredEmoji, 2000);
 
-      // Add some click effects
+      // Click effects
       document.addEventListener("click", function (e) {
-        const colors = [
-          "#ff6b6b",
-          "#4ecdc4",
-          "#45b7d1",
-          "#96ceb4",
-          "#ffeaa7",
-          "#dda0dd",
-        ];
         const emojis = ["🥫", "🚀", "🐐", "📈", "💎", "🌙", "⚡", "🧙‍♂️", "💯"];
 
         for (let i = 0; i < 5; i++) {
@@ -564,21 +1254,19 @@
           particle.style.fontSize = "20px";
           particle.style.pointerEvents = "none";
           particle.style.zIndex = "1000";
-          particle.style.animation = `
-                    particle-explosion 1s ease-out forwards
-                `;
+          particle.style.animation = `particle-explosion 1s ease-out forwards`;
 
           const keyframes = `
-                    @keyframes particle-explosion {
-                        0% { transform: translate(0, 0) scale(1); opacity: 1; }
-                        100% { 
-                            transform: translate(${
-                              (Math.random() - 0.5) * 200
-                            }px, ${(Math.random() - 0.5) * 200}px) scale(0); 
-                            opacity: 0; 
-                        }
+                @keyframes particle-explosion {
+                    0% { transform: translate(0, 0) scale(1); opacity: 1; }
+                    100% { 
+                        transform: translate(${
+                          (Math.random() - 0.5) * 200
+                        }px, ${(Math.random() - 0.5) * 200}px) scale(0); 
+                        opacity: 0; 
                     }
-                `;
+                }
+            `;
 
           if (!document.querySelector("#particle-style")) {
             const style = document.createElement("style");
@@ -606,7 +1294,6 @@
         }
 
         if (JSON.stringify(konamiCode) === JSON.stringify(konamiSequence)) {
-          // MEGA CHAOS MODE!
           document.body.style.animation = "shake 0.1s infinite";
 
           for (let i = 0; i < 50; i++) {
@@ -624,6 +1311,9 @@
           }, 5000);
         }
       });
+
+      // Initialize game
+      window.addEventListener("load", initGame);
     </script>
   </body>
 </html>
