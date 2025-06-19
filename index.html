@@ -294,6 +294,8 @@
         display: block;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         max-width: 100%;
+        touch-action: none;
+        user-select: none;
       }
 
       button {
@@ -492,7 +494,7 @@
   <body>
     <div class="container">
       <h1>🥫 AUTISM STACK 100 🥫</h1>
-      <div class="subtitle">"You're not weird. You're just early."</div>
+      <div class="subtitle">"Keep it 100."</div>
 
       <section class="features">
         <p>
@@ -503,17 +505,17 @@
       </section>
 
       <section class="tokenomics">
-        <h2>🧩 YOU'RE NOT WEIRD. YOU'RE JUST EARLY. 🧩</h2>
+        <h2>🧩 NEVER STOP STACKING ANON. MAXIMUM EFFORT. 🧩</h2>
         <p>
           That can-stacking image? It wasn't a meme. It was a calling. A shrine
-          to precision. A photo of what every quant, dev, and autist knew deep
+          to precision. A photo of what every quant, degen, and autist knew deep
           down: order is divine.
         </p>
         <img src="kid-stacking.jpg" alt="Stacker" />
         <p>
-          If you've ever stacked cans, organized crayons by color, rebuilt an
-          API for fun, or spent an entire day riding trains for "clarity"...
-          this is your tribe.
+          If you've ever stacked cans, organized crayons by color, put your life
+          savings into a token because it features a pic of a cute cat, or spent
+          an entire day riding trains for "clarity"... this is your tribe.
         </p>
         <p style="font-size: 1.4rem; font-weight: bold; color: #ff6b6b">
           🔠 $AS100 — A MEME, A MOVEMENT
@@ -529,7 +531,9 @@
           Enter the sacred ritual of stackers. Test your discipline. Channel
           your inner chart-reading deity. Drop cans. Ascend.
         </p>
-        <p><em>Legend says reaching 50 cans reveals the dev's wallet.</em></p>
+        <p>
+          <em>Legend says reaching 50 cans summons a giant gold unicorn.</em>
+        </p>
 
         <div class="stat">Score: <span id="score">0</span></div>
         <div class="stat">Best: <span id="best">0</span></div>
@@ -545,14 +549,16 @@
       </section>
 
       <div style="text-align: center; margin: 30px 0">
-        <a href="#" class="cta-button">🥫 BUY $AS100 🥫</a>
+        <a href="#" class="cta-button">🥫 BUY $STACK 🥫</a>
         <a href="#" class="cta-button">📈 PUMP.FUN 📈</a>
-        <a href="#" class="cta-button">🐦 TWITTER 🐦</a>
+        <a href="https://x.com/AutismStack100" class="cta-button"
+          >🐦 TWITTER 🐦</a
+        >
       </div>
 
       <div class="footer">
         <p>🥫 Remember: Always stack responsibly! 🥫</p>
-        <p>Contract Address:</p>
+        <p>Contract Address: [INSERT SOLANA CONTRACT HERE]</p>
         <p style="margin-top: 20px; font-size: 0.9rem">
           Disclaimer: This is a meme coin. Do your own research. Not financial
           advice. May cause uncontrollable urges to stack cans.
@@ -1163,11 +1169,28 @@
             ctx.shadowColor = "transparent";
             ctx.shadowBlur = 0;
 
+            // Add mobile touch indicator
+            if ("ontouchstart" in window) {
+              ctx.fillStyle = "rgba(255,255,255,0.8)";
+              ctx.font = "bold 14px Comic Neue";
+              ctx.textAlign = "center";
+              ctx.fillText(
+                "👆 Drag to move, tap to drop",
+                canvas.width / 2,
+                30
+              );
+            }
+
             currentCan.draw();
           }
 
           checkGameOver();
-          updateUI();
+
+          // Only update UI occasionally to prevent flickering
+          if (Math.random() < 0.3) {
+            // Only update 30% of frames
+            updateUI();
+          }
         }
 
         requestAnimationFrame(gameLoop);
@@ -1179,17 +1202,29 @@
         mouseX = e.clientX - rect.left;
       });
 
+      // Better touch controls for mobile
+      canvas.addEventListener("touchstart", (e) => {
+        e.preventDefault();
+        const rect = canvas.getBoundingClientRect();
+        const touch = e.touches[0];
+        mouseX = touch.clientX - rect.left;
+
+        // Also drop can on touch start
+        dropCan();
+      });
+
       canvas.addEventListener("touchmove", (e) => {
         e.preventDefault();
         const rect = canvas.getBoundingClientRect();
-        mouseX = e.touches[0].clientX - rect.left;
+        const touch = e.touches[0];
+        mouseX = touch.clientX - rect.left;
+      });
+
+      canvas.addEventListener("touchend", (e) => {
+        e.preventDefault();
       });
 
       canvas.addEventListener("click", dropCan);
-      canvas.addEventListener("touchstart", (e) => {
-        e.preventDefault();
-        dropCan();
-      });
 
       document.addEventListener("keydown", (e) => {
         if (e.code === "Space") {
@@ -1197,6 +1232,37 @@
           dropCan();
         }
       });
+
+      // Prevent page scrolling when touching the canvas
+      document.body.addEventListener(
+        "touchstart",
+        (e) => {
+          if (e.target === canvas) {
+            e.preventDefault();
+          }
+        },
+        { passive: false }
+      );
+
+      document.body.addEventListener(
+        "touchend",
+        (e) => {
+          if (e.target === canvas) {
+            e.preventDefault();
+          }
+        },
+        { passive: false }
+      );
+
+      document.body.addEventListener(
+        "touchmove",
+        (e) => {
+          if (e.target === canvas) {
+            e.preventDefault();
+          }
+        },
+        { passive: false }
+      );
 
       window.addEventListener("resize", () => {
         const maxWidth = Math.min(600, window.innerWidth - 40);
